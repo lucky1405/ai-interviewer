@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Interviewer</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <div class="header">
+    <div class="brand">AI Interviewer</div>
+  </div>
+
+  <div class="container">
+    <!-- PAGE 1: UPLOAD RESUME -->
+    <div id="view-upload" class="view active">
+      <div class="card">
+        <h2>Start Your Interview</h2>
+        <p class="subtitle">Upload your resume to generate tailored questions.</p>
+        
+        <div class="input-group">
+          <label>Target Role</label>
+          <input id="targetRole" type="text" value="Software Engineer" />
+        </div>
+        
+        <div class="input-group">
+          <label>Resume (PDF)</label>
+          <input id="resumeFile" type="file" accept="application/pdf" />
+        </div>
+
+        <!-- Hidden inputs for API config (Set defaults in your .env to keep the UI clean) -->
+        <input type="hidden" id="provider" value="groq" />
+        <input type="hidden" id="apiKey" value="" />
+
+        <button id="uploadBtn" class="btn" onclick="handleResumeUpload()">Start Interview</button>
+      </div>
+    </div>
+
+    <!-- PAGE 2: LIVE INTERVIEW -->
+    <div id="view-interview" class="view">
+      <div class="interview-layout">
+        <div class="sidebar">
+          <div id="progressText" class="progress-text">Connecting...</div>
+          
+          <div class="orb-wrap">
+            <div id="aiOrb" class="orb ai"></div>
+            <div>AI Interviewer</div>
+          </div>
+          <div class="orb-wrap">
+            <div id="userOrb" class="orb user"></div>
+            <div id="candidateName">You</div>
+          </div>
+
+          <button class="btn btn-danger" onclick="finishInterview()">End Interview</button>
+        </div>
+
+        <div class="chat-panel">
+          <div class="chat-header">
+            <strong>Live Transcript</strong>
+            <span id="aiStatus" class="ai-status">Initializing...</span>
+          </div>
+          <div id="chatMessages" class="chat-messages"></div>
+          <div class="chat-controls">
+            <button id="micBtn" class="mic-btn" onclick="toggleRecording()">Click to Speak Answer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: SUMMARY & FEEDBACK -->
+    <div id="view-summary" class="view">
+      <div id="summaryCard" class="card">
+        <!-- AI feedback gets injected here -->
+      </div>
+      <button class="btn" onclick="location.reload()" style="margin-top: 20px;">Take Another Interview</button>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
