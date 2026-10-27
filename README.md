@@ -4,18 +4,18 @@ A real-time, full-stack voice AI application that conducts dynamic technical int
 
 Upload a PDF resume, and the AI will extract your technical background, generate personalized questions, conduct a live voice-to-voice interview over WebSockets, and provide a final hiring evaluation scorecard.
 
-## ✨ Features
+## Features
 * **Resume Parsing:** Uses PyMuPDF and LLMs to dynamically select question topics based on candidate experience.
 * **Real-Time Voice Engine:** Bi-directional audio streaming via WebSockets for ultra-low latency conversation.
 * **Smart State Management:** Handles dynamic interruptions, requests to repeat questions, and follow-up probing.
 * **Automated Evaluation:** Generates a final JSON-structured scorecard detailing strengths, weaknesses, and a hiring recommendation.
 
-## 🛠️ Tech Stack
+## Tech Stack
 * **Backend:** FastAPI, Python, SQLite, WebSockets
 * **AI & Audio Pipeline:** Groq API (Llama-3 / GPT-OSS), Whisper (STT), `edge-tts` (in-memory neural TTS)
 * **Frontend:** Vanilla JavaScript, HTML5, CSS3, Web Audio API
 
-## 🚀 Local Setup
+## Local Setup
 
 **1. Clone the repository**
 ```bash
