@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+edge-tts
+pymupdf
+groq
+python-dotenv
+python-multipart
