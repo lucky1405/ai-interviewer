@@ -5,3 +5,4 @@ pymupdf
 groq
 python-dotenv
 python-multipart
+openai
